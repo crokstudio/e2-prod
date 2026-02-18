@@ -1,0 +1,16 @@
+columnSuffix: null
+handle: emplacement
+instructions: null
+name: Emplacement
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: 25
+  code: false
+  initialRows: 4
+  multiline: false
+  placeholder: "Indiquer l'emplacement du bien"
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

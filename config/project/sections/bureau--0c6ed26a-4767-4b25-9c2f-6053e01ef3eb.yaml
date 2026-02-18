@@ -1,0 +1,26 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 137e82b2-9e9e-44a8-afb4-bd4757cbeb2c # Membre
+handle: bureau
+maxAuthors: 1
+name: Bureau
+previewTargets:
+  -
+    label: 'Page d‘entrée primaire'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  5305348b-9508-42ef-ab8a-4896ff622bc6: # E2 Architecture | fr
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+  e8e01ef6-f328-43cb-9d2c-4d8b31cfbaac: # E2 Architecture | nl
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+type: channel

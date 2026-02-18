@@ -1,0 +1,58 @@
+:root {
+
+    --spacing-xxs: 8px;
+    --spacing-xs: 10px;
+    --spacing-s: 13px;
+    --spacing-m: 16px;
+    --spacing-l: 20px;
+    --spacing-xl: 28px;
+    --spacing-xxl: 40px;
+    --spacing-xxxl: 64px;
+    --spacing-jumbo: 80px;
+
+}
+
+.grid-layout {
+
+    display: grid;
+    grid-template-columns: calc(var(--spacing-l) - var(--spacing-xs)) repeat(5, 1fr) calc(var(--spacing-l) - var(--spacing-xs));
+    column-gap: var(--spacing-xs);
+    row-gap: var(--spacing-xxs);
+
+}
+
+@media all and (min-width: 768px) {
+
+    .grid-layout {
+
+        grid-template-columns: calc(var(--spacing-xl) - var(--spacing-s)) repeat(8, 1fr) calc(var(--spacing-xl) - var(--spacing-s));
+        column-gap: var(--spacing-s);
+        row-gap: var(--spacing-s);
+    
+    }
+
+}
+
+@media all and (min-width: 1024px) {
+
+    .grid-layout {
+
+        grid-template-columns: calc(var(--spacing-xl) - var(--spacing-m)) repeat(9, 1fr) calc(var(--spacing-xl) - var(--spacing-m));
+        column-gap: var(--spacing-m);
+        row-gap: var(--spacing-l);
+    
+    }
+
+}
+
+@media all and (min-width: 1440px) {
+
+    .grid-layout {
+
+        grid-template-columns: calc(var(--spacing-xxl) - var(--spacing-l)) repeat(9, 1fr) calc(var(--spacing-xxl) - var(--spacing-l));
+
+
+    }
+
+
+}

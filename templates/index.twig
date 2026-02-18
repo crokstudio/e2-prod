@@ -1,0 +1,140 @@
+{% set pageTitle = pageTitle|default('Projects'|t) ~ " | E2 Architecture" %}
+
+<!DOCTYPE html>
+{% set currentSite = craft.app.sites.currentSite %}
+<html lang="{{ currentSite.language|slice(0,2)|lower }}">
+<head>
+    {% set currentEntry = entry ?? null %}
+
+    {% for site in craft.app.sites.getAllSites() %}
+        {% if currentEntry %}
+            {% set localized = currentEntry.getLocalized().siteId(site.id).one() %}
+            {% if localized %}
+                <link rel="alternate"
+                    hreflang="{{ site.language }}"
+                    href="{{ localized.url }}">
+            {% endif %}
+        {% else %}
+            <link rel="alternate"
+                hreflang="{{ site.language }}"
+                href="{{ site.baseUrl }}">
+        {% endif %}
+    {% endfor %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <title>{{ pageTitle }}</title>
+    <meta name="description" content="Implanté à Aubel, au cœur du Pays de Herve, le bureau E2 architecture est actif depuis plus de 15 ans.">
+    <link rel="canonical" href="{{ craft.app.request.absoluteUrl }}">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="referrer" content="origin-when-cross-origin" />
+    <link rel="stylesheet" href="/src/css/styles.css">
+    <script type="module" src="/src/js/app.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+<body>
+
+    {% include '_partials/language-picker.twig' %}
+
+    {% set baseUrl = craft.app.sites.currentSite.baseUrl %}
+
+    <nav class=" mainnav__container -anim__scrollHidden">
+        <div class="mainnav__content">
+
+            <input type="checkbox" name="mainnav-toggle" id="mainnav-toggle" class="mainnav__toggle">
+
+            <div class="mainnav__bar">
+                <a href="{{ baseUrl }}">
+                    <img class="mainnav__logo tablet-invisible" src="/src/assets/img/e2Logo2Black.svg" alt="e2Logo">
+                    <img class="mainnav__logo" src="/src/assets/img/e2LogoBlack.svg" alt="e2Logo">
+                </a>
+                <label for="mainnav-toggle" class="mainnav__icon material-symbols-outlined">
+                </label>
+            </div>
+
+            {% set path = craft.app.request.pathInfo %}
+
+
+            <div class="mainnav__nav">  
+                <ul class="mainnav__list">
+                    <li class="mainnav__item {% if path == '' or path starts with 'projets' or path starts with 'projecten' %} mainnav__item--active {% endif %}">
+                        <a href="{{ baseUrl }}" class="mainnav__link">
+                            <h2>{{'Projects'|t}}</h2>
+                        </a>
+                    </li>
+
+                    <li class="mainnav__item {% if craft.app.request.pathInfo == 'bureau' %} mainnav__item--active {% endif %}">
+                        <a href="{{ baseUrl ~ 'bureau'}}" class="mainnav__link">
+                            <h2>{{'Office'|t}}</h2>
+                        </a>
+                    </li>
+                    <li class="mainnav__item {% if craft.app.request.pathInfo == 'contact' %} mainnav__item--active {% endif %}">
+                        <a href="{{ baseUrl ~ 'contact'}}" class="mainnav__link">
+                            <h2>{{'Contact'|t}}</h2>
+                        </a>
+                    </li>
+
+                    <div class="mainnav__item langSwitch">
+                    {% set currentSite = craft.app.sites.currentSite %}
+                    {% for site in craft.app.sites.getAllSites() %}
+                        {% set isCurrent = site.id == currentSite.id %}
+                        {% set siteLang = site.language|slice(0,2)|lower %}
+                        <a 
+                        href="{{ isCurrent ? 'javascript:void(0);' : site.baseUrl }}" 
+                        class="{{ isCurrent ? 'lang--active' : '' }}"
+                        data-lang="{{ siteLang }}"
+                        >
+                        <h2>{{ siteLang }}</h2>
+                        </a>
+                        {% if not loop.last %}
+                        <h2> | </h2>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+    <div class="section grid-layout footer">
+
+        <img src="/src/assets/img/e2Logo2White.svg" alt="e2Logo">
+
+        <div class="footer__container">
+            <div class="footer__content">
+                <h2>Contact</h2>
+                <a href="https://www.google.com/maps/place/Rte+de+Battice+71,+4880+Aubel">Rte de Battice,<br>71 4880 Aubel</a>
+                <a href="mailto:info@e2architecture.be">info@e2architecture.be</a>
+                <a href="tel:+3287688606">+32 87 68 86 06</a>
+            </div>
+            <div class="footer__content">
+                <h2>{{'Social Media'|t}}</h2>
+                <a href="https://www.facebook.com/e2architectureaubel">Facebook</a>
+                <a href="https://www.instagram.com/e2architecture_aubel/">Instagram</a>
+                <a href="https://www.linkedin.com/company/e2-architecture/">LinkedIn</a>
+            </div>
+            <div class="footer__content">
+                <h2>Site</h2>
+                <a href="{{ baseUrl }}">{{'Projects'|t}}</a>
+                <a href="{{ baseUrl ~ 'bureau'}}">{{'Office'|t}}</a>
+                <a href="{{ baseUrl ~ 'contact'}}">{{'Contact'|t}}</a>
+            </div>
+        </div>
+
+        <div class="footer__container">
+            <div class="footer__content">
+                <div class="line"></div>
+                <p>© 2026 E2 Architecture, Inc. All rights reserved</p>
+                <a href="https://www.crok.studio">Powered by Crok.Studio</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="module" src="/src/js/lang-pick.js"></script>
+
+</body>
+</html>

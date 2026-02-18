@@ -1,0 +1,10 @@
+/vendor/
+/.env
+/.env.*
+/storage/*
+!/storage/runtime/.gitkeep
+!/storage/logs/.gitkeep
+/web/assets/
+/node_modules/
+/.idea/
+/.vscode/

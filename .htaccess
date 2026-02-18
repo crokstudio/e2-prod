@@ -1,0 +1,13 @@
+<IfModule mod_headers.c>
+    Header unset X-Robots-Tag
+    Header set X-Robots-Tag "index, follow"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Route everything through Craft
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [L]
+</IfModule>

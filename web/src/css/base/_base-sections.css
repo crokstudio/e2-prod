@@ -1,0 +1,48 @@
+:root {
+
+    --section-spacing-mobile: var(--spacing-xxxl);
+    --section-spacing-tablet: calc(var(--spacing-xl)*3);
+    --section-spacing-intermediate: calc(var(--spacing-xl)*4);
+    --section-spacing-desktop: calc(var(--spacing-xxl)*4);
+
+}
+
+.section{
+    padding-block-start: var(--section-spacing-mobile);
+}
+
+.navspace {
+    margin-block-start: 74px;
+}
+
+@media(min-width: 768px) {
+
+    .section{
+        padding-block-start: var(--section-spacing-tablet);
+    }
+
+    .navspace {
+        margin-block-start: 55px;
+    }
+
+}
+
+@media(min-width: 1024px) {
+
+    .section{
+        padding-block-start: var(--section-spacing-intermediate);
+    }
+
+}
+
+@media(min-width: 1440px) {
+
+    .section{
+        padding-block-start: var(--section-spacing-desktop);
+    }
+
+    .navspace {
+        margin-block-start: 61px;
+    }
+
+}

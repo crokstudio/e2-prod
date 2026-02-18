@@ -1,0 +1,9 @@
+:root {
+    /* basic variables */
+    --color-white: #FEFEFC;
+    --color-black: #161616;
+
+    --color-black-50: #B2B2B1;
+
+    --fontFamily-base: 'Satoshi', sans-serif;
+}
