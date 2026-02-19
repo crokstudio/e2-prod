@@ -1,0 +1,9 @@
+baseUrl: $SECONDARY_SITE_URL
+enabled: '1'
+handle: e2ArchitectureNl
+hasUrls: true
+language: nl-BE
+name: 'E2 Architecture | nl'
+primary: false
+siteGroup: d56ed23f-7fde-4121-b482-790e3016a483 # E2 Architecture
+sortOrder: 2

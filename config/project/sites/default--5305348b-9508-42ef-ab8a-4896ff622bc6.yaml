@@ -1,0 +1,9 @@
+baseUrl: $PRIMARY_SITE_URL
+enabled: true
+handle: default
+hasUrls: true
+language: fr-BE
+name: 'E2 Architecture | fr'
+primary: true
+siteGroup: d56ed23f-7fde-4121-b482-790e3016a483 # E2 Architecture
+sortOrder: 1

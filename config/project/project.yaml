@@ -1,0 +1,55 @@
+dateModified: 1771511800
+email:
+  fromEmail: crokstudio@gmail.com
+  fromName: 'E2 Architecture'
+  transportType: craft\mail\transportadapters\Sendmail
+fs:
+  assets:
+    hasUrls: true
+    name: Assets
+    settings:
+      path: $ASSET_BASE_PATH
+    type: craft\fs\Local
+    url: $ASSET_BASE_URL
+  baseUrl:
+    hasUrls: true
+    name: 'Base Url'
+    settings:
+      path: $ASSET_BASE_PATH
+    type: craft\fs\Local
+    url: $ASSET_BASE_URL
+meta:
+  __names__:
+    0c6ed26a-4767-4b25-9c2f-6053e01ef3eb: Bureau # Bureau
+    5f9a8608-6dc3-4013-a4cd-6e8de731a5a5: 'Image Bien' # Image Bien
+    6cc49936-ab1b-4335-ba38-11c4e3067a98: bienBanner # bienBanner
+    8c6186ea-0e53-4618-8d7a-0ffe13ea19e8: Projet # Projet
+    10e0ba27-9204-4c5c-a5c2-3033f3ace63a: member # member
+    98d35549-dead-46e1-a16e-c3109a84a996: Assets # Assets
+    98e09de4-0a3c-4ce8-bbdb-f6cad5f72220: Projets # Projets
+    137e82b2-9e9e-44a8-afb4-bd4757cbeb2c: Membre # Membre
+    564fc918-a042-4bed-b46f-108922c971a3: Catégorie # Catégorie
+    5212b5a1-b5c9-48f0-8474-b141428ddea9: bien # bien
+    64210b60-630f-48cb-af61-637a2bc57acf: Description # Description
+    5305348b-9508-42ef-ab8a-4896ff622bc6: 'E2 Architecture | fr' # E2 Architecture | fr
+    aaeefc28-8bc7-41fa-bf62-f41990d637b9: 'Image Membre' # Image Membre
+    b259fcc3-372d-43a3-82f3-892be29d91f1: Emplacement # Emplacement
+    c8be7a66-4a74-41af-ac13-7d437d1153bd: 'Public Schema' # Public Schema
+    d56ed23f-7fde-4121-b482-790e3016a483: 'E2 Architecture' # E2 Architecture
+    dd2a0687-d649-40cc-a76a-763916b3908d: Catégories # Catégories
+    e8e01ef6-f328-43cb-9d2c-4d8b31cfbaac: 'E2 Architecture | nl' # E2 Architecture | nl
+    f9e41b17-218c-40ba-a454-e57a6c723ac5: Occupation # Occupation
+    f44d0b11-8712-450c-8a28-992bcfc3ca28: E-mail # E-mail
+system:
+  edition: solo
+  live: true
+  name: 'E2 Architecture'
+  schemaVersion: 5.9.0.8
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  require2fa: false
+  requireEmailVerification: true
