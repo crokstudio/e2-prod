@@ -1,0 +1,104 @@
+.contact{
+    row-gap: var(--spacing-xl);
+    margin-bottom: auto;
+}
+
+.contact h1{
+    font-size: var(--spacing-l);
+}
+
+.contact-container{
+    grid-column: 2 / -2;
+    display: flex;
+    flex-direction: column;
+    
+    gap: var(--spacing-l);
+}
+
+.contact-content{
+    display: flex;
+    flex-direction: column;
+    
+    gap: var(--spacing-xxs);
+}
+
+.contact-content h2{
+    color: var(--color-black-50);
+}
+
+.contact-content div{
+    display: flex;
+    flex-direction: column;
+
+    gap: calc(var(--spacing-xxs)/2);
+}
+
+.contact img{
+
+    grid-column: 2 / -2;
+    background-image: url("/src/assets/img/contact.png");
+    background-size: cover;
+    aspect-ratio: 16 / 9;
+
+    transition: 0.2s;
+}
+
+.contact img:hover{
+    background-image: url("/src/assets/img/contactHover.png");
+}
+
+@media all and (min-width: 768px){
+    .contact h1{
+        font-size: var(--spacing-xxl);
+    }
+}
+
+@media all and (min-width: 1024px){
+    .contact,
+    .contact-container{
+        row-gap: var(--spacing-xxl);
+    }
+
+    .contact-container{
+        grid-column: 8 / -2;
+    }
+
+    .contact img{
+        grid-row: 2 / 2;
+        grid-column: 2 / 8;
+    }
+
+    .contact{
+        grid-template-columns: calc(var(--spacing-l) - var(--spacing-xs)) repeat(8, 1fr) calc(var(--spacing-l) - var(--spacing-xs));
+    }
+
+    .contact-content h2{
+        font-size: var(--spacing-l);
+    }
+
+}
+
+@media all and (min-width: 1440px){
+    .contact,
+    .contact-container{
+        row-gap: var(--spacing-xxl);
+    }
+
+    .contact-container{
+        grid-column: 9 / -2;
+    }
+
+    .contact img{
+        display: block;
+        grid-row: 2 / 2;
+        grid-column: 2 / 9;
+    }
+
+    .contact{
+        grid-template-columns: calc(var(--spacing-l) - var(--spacing-xs)) repeat(10, 1fr) calc(var(--spacing-l) - var(--spacing-xs));
+    }
+
+    .contact h1{
+        font-size: var(--spacing-xxxl);
+    }
+}

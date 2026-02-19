@@ -1,0 +1,73 @@
+{% extends "index.twig" %}
+ 
+{% block content %}
+
+{% set categories = craft.categories.group('categories').all() %}
+
+<div class="section grid-layout navspace">
+
+    <input type="checkbox" id="filter-all" class="filters__input" name="projects-filter" checked>
+
+    {% for category in categories %}
+        <input type="checkbox" id="filter-{{ category.slug }}" class="filters__input" name="projects-filter">
+    {% endfor %}
+
+    <div class="projectCards__filters">
+        <ul class="filters__list">
+            <li class="filters__item">
+                <label class="filters__label" for="filter-all">
+                    <p>{{'All'|t}}</p>
+                </label>
+            </li>
+            {% for category in categories %}
+                <li class="filters__item">
+                    <label class="filters__label" for="filter-{{ category.slug }}">
+                        <p>{{ category.title }}</p>
+                    </label>
+                </li>
+            {% endfor %}
+
+        </ul>
+    </div>
+
+
+    <div class="grid-layout grid-layout__gallery">
+
+        {% set projects = craft.entries.section('projets').all() %}
+
+        {% for project in projects %}
+        {% set image = project.imageBien.one() %}
+        {% set category = project.categorie.one() %}
+
+        <div class="{{ category.slug }} gallery-item">
+            <a href="{{ project.url }}">
+                <img src="{{ image.getUrl('bien') }}" alt="{{ image.title }}">
+                <div>
+                    <p>{{ category.title }}</p>
+                    <p>{{ project.title }}</p>
+                    <p>{{ project.emplacement }}</p>
+                </div>
+            </a>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+
+<style>
+
+    {% for category in categories %}
+        #filter-{{ category.slug }}:checked ~ .projectCards__filters .filters__label[for="filter-{{ category.slug }}"] {
+            text-decoration: underline;
+        }
+        #filter-{{ category.slug }}:checked ~ .grid-layout__gallery .{{ category.slug }} {
+            display: block;
+        }
+    {% endfor %}
+
+</style>
+
+{% endblock %}

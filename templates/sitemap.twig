@@ -1,0 +1,33 @@
+{% header "Content-Type: application/xml" %}
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+{% for site in craft.app.sites.getAllSites() %}
+
+    {% set entries = craft.entries()
+        .siteId(site.id)
+        .status('live')
+        .uri(':notempty:')
+        .all()
+    %}
+
+    {% for entry in entries %}
+        {% if entry.url %}
+        <url>
+            <loc>{{ entry.url }}</loc>
+            <lastmod>{{ entry.dateUpdated|date('Y-m-d') }}</lastmod>
+        </url>
+        {% endif %}
+    {% endfor %}
+
+    <url>
+        <loc>{{ site.baseUrl }}bureau</loc>
+    </url>
+    <url>
+        <loc>{{ site.baseUrl }}contact</loc>
+    </url>
+{% endfor %}
+
+
+</urlset>

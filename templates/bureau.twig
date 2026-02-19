@@ -1,0 +1,70 @@
+{% extends "index.twig" %}
+
+{% set pageTitle = ('Office'|t) %}
+ 
+{% block content %}
+
+<div class="section grid-layout grid-layout__members navspace">
+    <div class="grid-members">
+
+        {% set members = craft.entries.section('bureau').all() %}
+
+        {% for member in members %}
+        {% set image = member.imageMember.one() %}
+
+        <div class="member">
+            <div class="member-img"><img src="{{image.getUrl('member')}}" alt="member"></div>
+            <div class="member-details">
+                <p class="member-occupation">{{ member.occupation }}</p>
+                <h2 class="member-name">{{ member.title }}</h2>
+                <a class="member-email" onClick="copyClipboard(this)" data-email="{{ member.eMail }}">{{'copy email'|t}}</a>
+            </div>
+        </div>
+
+        {% endfor %}
+
+        <div class="member member__last">
+            <div class="member-details">
+                <p>{{'Want to join team?'|t}}</p>
+                <a href="{{ baseUrl ~ 'contact'}}">{{'Contact us'|t}}</a>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="bureau__desktop">
+        <p>{{'OfficeDescription'|t|raw}}</p>
+    </div>
+
+    <div class="memberJoin">
+        <h2>{{'Want to join team?'|t}}</h2>
+        <a href="{{ baseUrl ~ 'contact'}}">
+            <p>{{'Contact us'|t}}</p>
+        </a>
+    </div>
+</div>
+
+<script>
+    function copyClipboard(el) {
+        const email = el.dataset.email;
+
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(email);
+        } else {
+            const textarea = document.createElement("textarea");
+            textarea.value = email;
+            textarea.style.position = "fixed";
+            textarea.style.opacity = "0";
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+        }
+    }
+</script>
+
+<div class="section grid-layout bureau">
+    <p>{{'OfficeDescription'|t|raw}}</p>
+</div>
+
+{% endblock %}
