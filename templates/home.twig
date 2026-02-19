@@ -36,12 +36,14 @@
         {% set projects = craft.entries.section('projets').all() %}
 
         {% for project in projects %}
-        {% set image = project.imageBien.one() %}
+        {% set image = project.imagesVerticales.one() ?? project.imagesHorizontales.one() %}
         {% set category = project.categorie.one() %}
 
         <div class="{{ category.slug }} gallery-item">
             <a href="{{ project.url }}">
+                {% if image %}
                 <img src="{{ image.getUrl('bien') }}" alt="{{ image.title }}">
+                {% endif %}
                 <div>
                     <p>{{ category.title }}</p>
                     <p>{{ project.title }}</p>

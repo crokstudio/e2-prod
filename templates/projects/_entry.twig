@@ -9,10 +9,13 @@
     <a href="{{ baseUrl }}" class="backArrow"><img src="/src/assets/img/left-arrow.svg" alt="left-arrow"></a>
     <h2 class="projectCategory">{{entry.categorie.one().title}}</h2>
     <h1 class="projectName">{{entry.title}}</h1>
-    {% set image = entry.imageBien.one() %}
+    {% set horizontalImages = entry.imagesHorizontales.all() %}
+    {% set image = horizontalImages|length ? (horizontalImages|first) : entry.imagesVerticales.one() %}
+    {% if image %}
     <div class="projectImage">
-        <img src="{{ image.getUrl('bienbanner') }}" alt="{{ entry.imageBien.one().title }}">
+        <img src="{{ image.getUrl('bienbanner') }}" alt="{{ image.title }}">
     </div>
+    {% endif %}
     <h2 class="projectLocation">{{entry.emplacement}}</h2>
     <p class="projectDescription">{{ entry.description | nl2br }}</p> <!-- nl2br converts empty lines in Craft to <br> tags -->
 </div>
@@ -21,13 +24,26 @@
 
     <h2><span>Plus de</span> photos</h2>
 
-    {%  set images = entry.imageBien.all() %}
+    {% set imagesV = entry.imagesVerticales.all() %}
+    {% set imagesH = entry.imagesHorizontales.all() %}
+    {% set galleryItems = [] %}
+
+    {% for image in imagesV %}
+        {% set galleryItems = galleryItems|merge([{ image: image, orientation: 'vertical' }]) %}
+    {% endfor %}
+
+    {% for image in imagesH %}
+        {% set galleryItems = galleryItems|merge([{ image: image, orientation: 'horizontal' }]) %}
+    {% endfor %}
+
+    {% set galleryItems = galleryItems|shuffle %}
 
     <div class="grid-layout project-gallery">
-        {% for image in images %}
-        <div class="project-gallery-item">
-            <img src="{{ image.getUrl('bien') }}" alt="{{ image.title }}">
-        </div>
+        {% for item in galleryItems %}
+            {% set orientationClass = item.orientation == 'vertical' ? 'grid-item__vertical' : 'grid-item__horizontal' %}
+            <div class="project-gallery-item {{ orientationClass }}">
+                <img src="{{ item.image.getUrl('bien') }}" alt="{{ item.image.title }}">
+            </div>
         {% endfor %}
     </div>
     

@@ -57,7 +57,7 @@ fieldLayouts:
             editCondition: null
             elementCondition: null
             elementEditCondition: null
-            fieldUid: 5f9a8608-6dc3-4013-a4cd-6e8de731a5a5 # Image Bien
+            fieldUid: 5f9a8608-6dc3-4013-a4cd-6e8de731a5a5 # Images Verticales
             handle: null
             instructions: null
             label: null
@@ -65,6 +65,38 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 9af60e7e-01c2-48c4-8242-467a117d076a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-02-19T16:26:37+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 08c30ef7-c48b-499b-b653-4cda82f6eaa0 # Images Horizontales
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 335f709b-3852-4a65-97cc-90004705794d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-02-19T16:28:43+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: dee1f7cf-beb4-4718-b86e-6b15775fab6c # Type de vignette
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2c27bb52-a455-4816-a28f-5c265b7107d7
             userCondition: null
             warning: null
             width: 100
