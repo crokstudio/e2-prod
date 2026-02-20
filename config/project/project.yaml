@@ -1,4 +1,4 @@
-dateModified: 1771511800
+dateModified: 1771518553
 email:
   fromEmail: crokstudio@gmail.com
   fromName: 'E2 Architecture'
@@ -21,8 +21,9 @@ fs:
 meta:
   __names__:
     0c6ed26a-4767-4b25-9c2f-6053e01ef3eb: Bureau # Bureau
-    5f9a8608-6dc3-4013-a4cd-6e8de731a5a5: 'Image Bien' # Image Bien
+    5f9a8608-6dc3-4013-a4cd-6e8de731a5a5: 'Images Verticales' # Images Verticales
     6cc49936-ab1b-4335-ba38-11c4e3067a98: bienBanner # bienBanner
+    08c30ef7-c48b-499b-b653-4cda82f6eaa0: 'Images Horizontales' # Images Horizontales
     8c6186ea-0e53-4618-8d7a-0ffe13ea19e8: Projet # Projet
     10e0ba27-9204-4c5c-a5c2-3033f3ace63a: member # member
     98d35549-dead-46e1-a16e-c3109a84a996: Assets # Assets
@@ -37,6 +38,7 @@ meta:
     c8be7a66-4a74-41af-ac13-7d437d1153bd: 'Public Schema' # Public Schema
     d56ed23f-7fde-4121-b482-790e3016a483: 'E2 Architecture' # E2 Architecture
     dd2a0687-d649-40cc-a76a-763916b3908d: Catégories # Catégories
+    dee1f7cf-beb4-4718-b86e-6b15775fab6c: 'Type de vignette' # Type de vignette
     e8e01ef6-f328-43cb-9d2c-4d8b31cfbaac: 'E2 Architecture | nl' # E2 Architecture | nl
     f9e41b17-218c-40ba-a454-e57a6c723ac5: Occupation # Occupation
     f44d0b11-8712-450c-8a28-992bcfc3ca28: E-mail # E-mail

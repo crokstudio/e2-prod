@@ -8,6 +8,7 @@
 
 .grid-layout__gallery{
     grid-column: 1 / -1;
+    grid-auto-rows: 1fr;
 }
 
 .projectCards__filters {
@@ -68,6 +69,11 @@
     cursor: pointer;
 
     flex: 0 0 100%;
+}
+
+.gallery-item--vertical {
+    --h: 2;
+    grid-row: span var(--h);
 }
 
 .gallery-item img{
@@ -144,7 +150,7 @@
         
         grid-template-columns: repeat(3, minmax(0, 1fr));
         grid-auto-rows: var(--row-height);
-        grid-auto-flow: dense; /* évite les trous */
+        grid-auto-flow: dense;
     }
 
     .gallery-item,
@@ -154,23 +160,6 @@
 
         min-height: var(--row-height);
         width: 100%;
-        background-color: blue;
-        
-    }
-
-    /* XL (2x2) */
-    .grid-layout__gallery > :nth-child(11n + 1),
-    .grid-layout__gallery > :nth-child(11n + 6) {
-        --w: 2;
-        --h: 2;
-    }
-
-    /* Tall (1x2) */
-    .grid-layout__gallery > :nth-child(11n + 3),
-    .grid-layout__gallery > :nth-child(11n + 4),
-    .grid-layout__gallery > :nth-child(11n + 8),
-    .grid-layout__gallery > :nth-child(11n + 10) {
-        --h: 2;
     }
 
 }

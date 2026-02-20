@@ -1,0 +1,2 @@
+2026-02-19 16:05:52 [console.ERROR] [craft\db\Connection::open] SQLSTATE[HY000] [1049] Unknown database 'e2archi_db' {"memory":8351944} 
+2026-02-19 16:05:52 [console.ERROR] [craft\db\Connection::open] SQLSTATE[HY000] [1049] Unknown database 'e2archi_db' {"memory":8352376} 

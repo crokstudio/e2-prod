@@ -6,10 +6,10 @@
 
 <div class="section grid-layout navspace">
 
-    <input type="checkbox" id="filter-all" class="filters__input" name="projects-filter" checked>
+    <input type="radio" id="filter-all" class="filters__input" name="projects-filter" checked>
 
     {% for category in categories %}
-        <input type="checkbox" id="filter-{{ category.slug }}" class="filters__input" name="projects-filter">
+        <input type="radio" id="filter-{{ category.slug }}" class="filters__input" name="projects-filter">
     {% endfor %}
 
     <div class="projectCards__filters">
@@ -33,22 +33,32 @@
 
     <div class="grid-layout grid-layout__gallery">
 
-        {% set projects = craft.entries.section('projets').all() %}
+        {% set projects = craft.entries.section('projets').orderBy('postDate DESC').all() %}
 
         {% for project in projects %}
-        {% set image = project.imageBien.one() %}
-        {% set category = project.categorie.one() %}
+            {% set projectStyle = project.projectStyle ?? 'horizontalSmall' %}
+            {% set cardClass = projectStyle == 'vertical'
+                ? 'gallery-item--vertical'
+                : (projectStyle == 'horizontalBig' ? 'gallery-item--horizontal-big' : 'gallery-item--horizontal-small') %}
+            {% set image = projectStyle == 'vertical'
+                ? (project.imagesVerticales.one() ?? project.imagesHorizontales.one())
+                : (project.imagesHorizontales.one() ?? project.imagesVerticales.one()) %}
+            {% set category = project.categorie.one() %}
+            {% set categorySlug = category ? category.slug : 'uncategorized' %}
+            {% set categoryTitle = category ? category.title : '' %}
 
-        <div class="{{ category.slug }} gallery-item">
-            <a href="{{ project.url }}">
-                <img src="{{ image.getUrl('bien') }}" alt="{{ image.title }}">
-                <div>
-                    <p>{{ category.title }}</p>
-                    <p>{{ project.title }}</p>
-                    <p>{{ project.emplacement }}</p>
-                </div>
-            </a>
-        </div>
+            <div class="{{ categorySlug }} gallery-item {{ cardClass }}" data-card-type="{{ projectStyle }}">
+                <a href="{{ project.url }}">
+                    {% if image %}
+                    <img src="{{ image.getUrl('bien') }}" alt="{{ image.title }}">
+                    {% endif %}
+                    <div>
+                        <p>{{ categoryTitle }}</p>
+                        <p>{{ project.title }}</p>
+                        <p>{{ project.emplacement }}</p>
+                    </div>
+                </a>
+            </div>
 
         {% endfor %}
 
