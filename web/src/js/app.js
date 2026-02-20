@@ -14,6 +14,7 @@ function restoreAll() {
 let areCategoriesChecked = false;
 
 // Main filter function
+/*
 function applyFilter(input) {
 
     if(input.id != 'filter-all') {
@@ -54,3 +55,5 @@ filters.forEach(input => {
     applyFilter(input);
   });
 });
+
+*/

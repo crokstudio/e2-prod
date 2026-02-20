@@ -24,6 +24,8 @@
     display: grid;
     grid-column: 1 / -1;
     row-gap: var(--spacing-s);
+
+        grid-auto-rows: 1fr;
 }
 
 .project-gallery > .project-gallery-item{
@@ -69,7 +71,6 @@
         grid-template-columns: repeat(2, 1fr);
         grid-column: 2 / -2;
         column-gap: var(--spacing-m);
-        grid-auto-rows: 180px;
         grid-auto-flow: row;
     }
 
@@ -101,7 +102,6 @@
     .project-gallery{
         grid-column: 2 / -2;
         grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: 420px;
     }
 
     .grid-layout__photos{
