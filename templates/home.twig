@@ -33,7 +33,7 @@
 
     <div class="grid-layout grid-layout__gallery">
 
-        {% set projects = craft.entries.section('projets').all() %}
+        {% set projects = craft.entries.section('projets').orderBy('postDate DESC').all() %}
 
         {% for project in projects %}
             {% set projectStyle = project.projectStyle ?? 'horizontalSmall' %}
@@ -44,14 +44,16 @@
                 ? (project.imagesVerticales.one() ?? project.imagesHorizontales.one())
                 : (project.imagesHorizontales.one() ?? project.imagesVerticales.one()) %}
             {% set category = project.categorie.one() %}
+            {% set categorySlug = category ? category.slug : 'uncategorized' %}
+            {% set categoryTitle = category ? category.title : '' %}
 
-            <div class="{{ category.slug }} gallery-item {{ cardClass }}">
+            <div class="{{ categorySlug }} gallery-item {{ cardClass }}" data-card-type="{{ projectStyle }}">
                 <a href="{{ project.url }}">
                     {% if image %}
                     <img src="{{ image.getUrl('bien') }}" alt="{{ image.title }}">
                     {% endif %}
                     <div>
-                        <p>{{ category.title }}</p>
+                        <p>{{ categoryTitle }}</p>
                         <p>{{ project.title }}</p>
                         <p>{{ project.emplacement }}</p>
                     </div>

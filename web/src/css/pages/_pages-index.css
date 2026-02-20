@@ -8,6 +8,7 @@
 
 .grid-layout__gallery{
     grid-column: 1 / -1;
+    grid-auto-rows: 1fr;
 }
 
 .projectCards__filters {
@@ -71,18 +72,8 @@
 }
 
 .gallery-item--vertical {
-    --w: 1;
     --h: 2;
-}
-
-.gallery-item--horizontal-small {
-    --w: 1;
-    --h: 1;
-}
-
-.gallery-item--horizontal-big {
-    --w: 2;
-    --h: 2;
+    grid-row: span var(--h);
 }
 
 .gallery-item img{
@@ -159,26 +150,16 @@
         
         grid-template-columns: repeat(3, minmax(0, 1fr));
         grid-auto-rows: var(--row-height);
-        grid-auto-flow: row dense;
+        grid-auto-flow: dense;
     }
 
     .gallery-item,
     .gallery-item:nth-child(even){
         grid-column: span var(--w, 1);
         grid-row: span var(--h, 1);
-        /*
-        grid-column-start: var(--start, auto);
-        */
 
         min-height: var(--row-height);
         width: 100%;
-    }
-
-    /* Keep a disruptive rhythm with nth-child placement */
-    .grid-layout__gallery > :nth-child(11n + 2),
-    .grid-layout__gallery > :nth-child(11n + 5),
-    .grid-layout__gallery > :nth-child(11n + 9) {
-        --start: 2;
     }
 
 }
